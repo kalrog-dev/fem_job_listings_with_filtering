@@ -1,6 +1,8 @@
+import { nanoid } from 'nanoid'
 import styled from 'styled-components'
 
 const JobOffer = styled.section`
+  position: relative;
   width: 87.2%;
   max-width: 1110px;
   margin-inline: auto;
@@ -9,6 +11,14 @@ const JobOffer = styled.section`
   border-left: 5px solid hsl( ${props => props.theme.clrPrimary_400} );
   border-radius: 5px;
 `
+
+const Logo = styled.img`
+  position: absolute;
+  top: -24px;
+  width: 48px;
+  height: 48px;
+`
+
 const Header = styled.div`
   display: flex;
   align-items: center;
@@ -85,6 +95,7 @@ const Filter = styled.a`
 export default function Job(props) {
   return (
     <JobOffer>
+      <Logo src={props.logo} alt={`${props.company} logo`} />
       <Header>
         <Company>{props.company}</Company>
         <Tags>
@@ -104,8 +115,8 @@ export default function Job(props) {
         <Filter href='#'>{props.filters.role}</Filter>
         <Filter href='#'>{props.filters.level}</Filter>
         {/* Iterate through techs array */}
-        {props.filters.techs.map((tech, index) => 
-          <Filter href='#' key={index}>{tech}</Filter>  
+        {props.filters.techs.map((tech) => 
+          <Filter href='#' key={nanoid()}>{tech}</Filter>  
         )}
       </Filters>
     </JobOffer>

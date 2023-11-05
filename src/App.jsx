@@ -1,6 +1,8 @@
-import './styles/App.css'
-import Job from './components/Job'
+import { nanoid } from 'nanoid'
 import data from './data'
+import Job from './components/Job'
+import logos from './assets/img/logos/logos'
+import './styles/App.css'
 
 function App() {
   console.log(data);
@@ -9,17 +11,12 @@ function App() {
       {/* Iterate over an array of job offer objects */}
       {data.map((job, index) =>
         <Job 
-          key={index}
-          // company={job.company}
-          // new={job.tags.new}
-          // featured={job.tags.featured}
           {...job}
+          logo={logos[index]}
+          key={nanoid()}
         />
       )}
     </>
-    
-    
-    
   )
 }
 
