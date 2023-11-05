@@ -22,16 +22,20 @@
 
 /* General styles */
 body {
-  background-color: hsl(180, 52%, 96%);
+  /* background-color: hsl(180, 52%, 96%); */
 }
 
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   min-height: 100vh;
   margin-inline: auto;
   font-family: "League Spartan", sans-serif;
   font-size: 1rem;
+
+  /* Phone viewport width */
+  max-width: 375px;
+  background-color: hsl(180, 52%, 96%);
 }

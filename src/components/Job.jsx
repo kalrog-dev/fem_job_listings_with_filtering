@@ -5,7 +5,7 @@ const JobOffer = styled.section`
   max-width: 1110px;
   padding: 2em 1.5em 1.5em 1.5em;
   background-color: hsl( ${props => props.theme.clrNeutral_100} );
-  border-left: 5px solid hsl( ${props => props.theme.clrPrimary} );
+  border-left: 5px solid hsl( ${props => props.theme.clrPrimary_400} );
   border-radius: 5px;
 `
 const Header = styled.div`
@@ -18,7 +18,7 @@ const Header = styled.div`
 `
 
 const Company = styled.span`
-  color: hsl( ${props => props.theme.clrPrimary} );
+  color: hsl( ${props => props.theme.clrPrimary_400} );
 `
 
 const Tags = styled.div`
@@ -27,11 +27,41 @@ const Tags = styled.div`
 `
 
 const Tag = styled.span`
-  padding: 7px 10px 4px;
+  padding: 0.5em 0.7em 0.28em;
   line-height: 1;
   color: hsl( ${props => props.theme.clrNeutral_100} );
-  background-color: hsl( ${props => props.theme.clrPrimary} );
+  background-color: hsl( ${props => props.theme.clrPrimary_400} );
   border-radius: 12px;
+`
+
+const Title = styled.strong`
+  margin-bottom: 0.5em;
+  font-size: ${props => props.theme.fs_400};
+  color: hsl( ${props => props.theme.clrPrimary_800} );
+  line-height: 1.71;
+`
+
+const Details = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.625em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid hsl( ${props => props.theme.clrNeutral_300} );
+  margin-bottom: 1em;
+  font-size: ${props => props.fs_400}
+  
+`
+const Detail = styled.span`
+  line-height: 1.5;
+  color: hsl( ${props => props.theme.clrNeutral_400} );
+`
+
+const Separator = styled.div`
+  width: 4px;
+  height: 4px;
+  margin-bottom: 0.25em;
+  background-color: hsl( ${props => props.theme.clrNeutral_300} );
+  border-radius: 50%;
 `
 
 export default function Job() {
@@ -44,12 +74,14 @@ export default function Job() {
           <Tag>FEATURED</Tag>
         </Tags>
       </Header>
-      <strong className="job__title">Senior Frontend Developer</strong>
-      <div className="job__details">
-        <span className="job__date">1d ago</span>
-        <span className="job__contract">Full Time</span>
-        <span className="job__location">USA only</span>
-      </div>
+      <Title>Senior Frontend Developer</Title>
+      <Details>
+        <Detail className="job__date">1d ago</Detail>
+        <Separator />
+        <Detail className="job__contract">Full Time</Detail>
+        <Separator />
+        <Detail className="job__location">USA only</Detail>
+      </Details>
       <div className="job__filters">
         <span className="job__filter">Frontend</span>
         <span className="job__filter">Senior</span>
