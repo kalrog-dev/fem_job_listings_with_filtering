@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const JobOffer = styled.section`
   width: 87.2%;
   max-width: 1110px;
+  margin-inline: auto;
   padding: 2em 1.5em 1.5em 1.5em;
   background-color: hsl( ${props => props.theme.clrNeutral_100} );
   border-left: 5px solid hsl( ${props => props.theme.clrPrimary_400} );
@@ -30,7 +31,7 @@ const Tag = styled.span`
   padding: 0.5em 0.7em 0.28em;
   line-height: 1;
   color: hsl( ${props => props.theme.clrNeutral_100} );
-  background-color: hsl( ${props => props.dark ? props.theme.clrPrimary_800 : props.theme.clrPrimary_400} );
+  background-color: hsl( ${props => props.className === "dark" ? props.theme.clrPrimary_800 : props.theme.clrPrimary_400} );
   border-radius: 12px;
 `
 
@@ -81,30 +82,31 @@ const Filter = styled.a`
   border-radius: 4px;
 `
 
-export default function Job() {
+export default function Job(props) {
   return (
     <JobOffer>
       <Header>
-        <Company>Photosnap</Company>
+        <Company>{props.company}</Company>
         <Tags>
-          <Tag>NEW!</Tag>
-          <Tag dark>FEATURED</Tag>
+          <Tag style={{display: props.tags.new ? "inherit" : "none"}}>NEW!</Tag>
+          <Tag className="dark" style={{display: props.tags.featured ? "inherit" : "none"}}>FEATURED</Tag>
         </Tags>
       </Header>
-      <Title>Senior Frontend Developer</Title>
+      <Title>{props.jobTitle}</Title>
       <Details>
-        <Detail>1d ago</Detail>
+        <Detail>{props.date}</Detail>
         <Separator />
-        <Detail>Full Time</Detail>
+        <Detail>{props.contract}</Detail>
         <Separator />
-        <Detail>USA only</Detail>
+        <Detail>{props.location}</Detail>
       </Details>
       <Filters>
-        <Filter href='#'>Frontend</Filter>
-        <Filter href='#'>Senior</Filter>
-        <Filter href='#'>HTML</Filter>
-        <Filter href='#'>CSS</Filter>
-        <Filter href='#'>JavaScript</Filter>
+        <Filter href='#'>{props.filters.role}</Filter>
+        <Filter href='#'>{props.filters.level}</Filter>
+        {/* Iterate through techs array */}
+        {props.filters.techs.map((tech, index) => 
+          <Filter href='#' key={index}>{tech}</Filter>  
+        )}
       </Filters>
     </JobOffer>
   )

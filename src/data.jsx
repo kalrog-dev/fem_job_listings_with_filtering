@@ -1,4 +1,4 @@
-data = [
+export default [
   {
     company: "Photosnap",
     jobTitle: "Senior Frontend Developer",
