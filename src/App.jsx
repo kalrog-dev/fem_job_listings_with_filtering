@@ -1,10 +1,9 @@
-import './App.css'
+import './styles/App.css'
+import Job from './components/Job'
 
 function App() {
   return (
-    <>
-      <h1>Test heading</h1>
-    </>
+    <Job />
   )
 }
 

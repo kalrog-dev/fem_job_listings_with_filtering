@@ -1,0 +1,33 @@
+/* Local fonts */
+@font-face {
+  font-family: "League Spartan";
+  font-weight: 500;
+  src: url("../assets/fonts/LeagueSpartan-Medium.ttf");
+}
+
+@font-face {
+  font-family: "League Spartan";
+  font-weight: 700;
+  src: url("../assets/fonts/LeagueSpartan-Bold.ttf");
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General styles */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  min-height: 100vh;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+  background-color: hsl(180, 52%, 96%);
+}
