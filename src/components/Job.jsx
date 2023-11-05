@@ -30,7 +30,7 @@ const Tag = styled.span`
   padding: 0.5em 0.7em 0.28em;
   line-height: 1;
   color: hsl( ${props => props.theme.clrNeutral_100} );
-  background-color: hsl( ${props => props.theme.clrPrimary_400} );
+  background-color: hsl( ${props => props.dark ? props.theme.clrPrimary_800 : props.theme.clrPrimary_400} );
   border-radius: 12px;
 `
 
@@ -64,6 +64,23 @@ const Separator = styled.div`
   border-radius: 50%;
 `
 
+const Filters = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+`
+
+const Filter = styled.a`
+  padding: 0.31em 0.56em 0.063em;
+  font-size: ${props => props.theme.fs_400};
+  font-weight: ${props => props.theme.fw_bold};
+  line-height: 1.5;
+  text-decoration: none;
+  color: hsl( ${props => props.theme.clrPrimary_400} );
+  background-color: hsl( ${props => props.theme.clrPrimary_400} / 0.1 );
+  border-radius: 4px;
+`
+
 export default function Job() {
   return (
     <JobOffer>
@@ -71,24 +88,24 @@ export default function Job() {
         <Company>Photosnap</Company>
         <Tags>
           <Tag>NEW!</Tag>
-          <Tag>FEATURED</Tag>
+          <Tag dark>FEATURED</Tag>
         </Tags>
       </Header>
       <Title>Senior Frontend Developer</Title>
       <Details>
-        <Detail className="job__date">1d ago</Detail>
+        <Detail>1d ago</Detail>
         <Separator />
-        <Detail className="job__contract">Full Time</Detail>
+        <Detail>Full Time</Detail>
         <Separator />
-        <Detail className="job__location">USA only</Detail>
+        <Detail>USA only</Detail>
       </Details>
-      <div className="job__filters">
-        <span className="job__filter">Frontend</span>
-        <span className="job__filter">Senior</span>
-        <span className="job__filter">HTML</span>
-        <span className="job__filter">CSS</span>
-        <span className="job__filter">JavaScript</span>
-      </div>
+      <Filters>
+        <Filter href='#'>Frontend</Filter>
+        <Filter href='#'>Senior</Filter>
+        <Filter href='#'>HTML</Filter>
+        <Filter href='#'>CSS</Filter>
+        <Filter href='#'>JavaScript</Filter>
+      </Filters>
     </JobOffer>
   )
 }
