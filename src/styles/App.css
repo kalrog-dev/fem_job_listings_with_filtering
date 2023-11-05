@@ -21,13 +21,17 @@
 }
 
 /* General styles */
+body {
+  background-color: hsl(180, 52%, 96%);
+}
+
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 1440px;
   min-height: 100vh;
+  margin-inline: auto;
   font-family: "League Spartan", sans-serif;
   font-size: 1rem;
-  background-color: hsl(180, 52%, 96%);
 }
