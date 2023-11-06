@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 import data from './data'
-import Job from './components/Job'
+import Job from './components/Job/Job'
 import logos from './assets/img/logos/logos'
 import './styles/App.css'
 
